@@ -31,6 +31,8 @@ create table if not exists public.products (
   updated_at timestamptz not null default now()
 );
 
+create index if not exists products_brand_model_idx on public.products (brand, model);
+
 create or replace function public.set_updated_at() returns trigger language plpgsql as $$
 begin new.updated_at = now(); return new; end $$;
 drop trigger if exists products_updated_at on public.products;

@@ -12,7 +12,8 @@ export default function AdminLogin() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    setBusy(true); setErr('');
+    setBusy(true);
+    setErr('');
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setBusy(false);
     if (error) return setErr('Sign in failed. Check your email and password.');
@@ -23,11 +24,31 @@ export default function AdminLogin() {
       <h1 style={{ fontSize: 28 }}>Admin sign in</h1>
       <form onSubmit={submit}>
         <label className="f" htmlFor="email">Email</label>
-        <input id="email" className="input" type="email" required autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input
+          id="email"
+          className="input"
+          type="email"
+          required
+          autoComplete="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <label className="f" htmlFor="pw">Password</label>
-        <input id="pw" className="input" type="password" required autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input
+          id="pw"
+          className="input"
+          type="password"
+          required
+          autoComplete="current-password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         {err && <p role="alert" style={{ color: 'var(--err)' }}>{err}</p>}
-        <p><button className="btn block" disabled={busy}>{busy ? 'Signing in…' : 'Sign in'}</button></p>
+        <p>
+          <button className="btn block" disabled={busy}>
+            {busy ? 'Signing in…' : 'Sign in'}
+          </button>
+        </p>
       </form>
     </div>
   );
