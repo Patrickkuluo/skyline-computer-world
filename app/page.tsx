@@ -56,11 +56,11 @@ export default async function Home() {
           <Reveal>
             <span className="overline">Nairobi · CBD</span>
             <h1 style={{ marginTop: 12 }}>
-              Computers, phones and accessories in Nairobi CBD
+              Real specs. Real prices. <span style={{ color: 'var(--red)' }}>Real</span> stock.
             </h1>
             <p className="lead">
-              Browse our catalogue, build your order, and send it to us on WhatsApp. Prices,
-              condition and availability are shown on every product — what you see is what you get.
+              Laptops, phones, accessories and electronics with clear prices, condition and
+              availability — from our store at Terry House, Nairobi CBD.
             </p>
           </Reveal>
           <Reveal delay={80}>
